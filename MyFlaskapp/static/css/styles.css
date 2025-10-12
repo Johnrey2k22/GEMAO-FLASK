@@ -23,7 +23,7 @@ html, body {
     color: var(--text-primary);
     background-color: #0a1929;
     /* NOTE: Ensure you have the /static/images/naruto_bg.png file in your project */
-    background-image: linear-gradient(var(--dark-overlay), var(--dark-overlay)), url('/static/images/naruto_bg.png');
+    background-image: linear-gradient(var(--dark-overlay), var(--dark-overlay)), url('../images/naruto_bg.png');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;

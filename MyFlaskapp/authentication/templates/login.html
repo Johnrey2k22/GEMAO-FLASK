@@ -31,5 +31,22 @@
             <button type="submit">Login</button>
         </form>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const successMessage = document.querySelector('.success-message');
+            const errorMessage = document.querySelector('.error-message');
+
+            if (successMessage) {
+                const audio = new Audio("{{ url_for('static', filename='audio/success.mp3') }}");
+                audio.play();
+            }
+
+            if (errorMessage) {
+                const audio = new Audio("{{ url_for('static', filename='audio/fail.mp3') }}");
+                audio.play();
+            }
+        });
+    </script>
 </body>
 </html>
