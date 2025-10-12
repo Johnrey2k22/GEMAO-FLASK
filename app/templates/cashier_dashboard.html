@@ -4,6 +4,13 @@
     <title>Cashier Dashboard</title>
 </head>
 <body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <h2>Welcome, Cashier!</h2>
     <p>This is the cashier dashboard.</p>
 </body>

@@ -1,5 +1,10 @@
-from flask import render_template, request, redirect, url_for, flash
+from flask import render_template, request, redirect, url_for
 from . import auth_bp
+from app.utils import Alert_Success, Alert_Fail
+
+@auth_bp.route('/')
+def index():
+    return redirect(url_for('auth.login'))
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
 def login():
@@ -8,9 +13,11 @@ def login():
         password = request.form.get('password')
 
         if username == 'user' and password == 'user_password':
+            Alert_Success('Login successful!')
             return redirect(url_for('user.user_dashboard'))
         elif username == 'cashier' and password == 'cashier_password':
+            Alert_Success('Login successful!')
             return redirect(url_for('cashier.cashier_dashboard'))
         else:
-            flash('Incorrect credentials')
+            Alert_Fail('Invalid credentials.')
     return render_template('login.html')
