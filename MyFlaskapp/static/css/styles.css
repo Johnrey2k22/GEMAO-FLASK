@@ -1,0 +1,162 @@
+:root {
+    --naruto-orange: #FF8C00; /* Main accent color */
+    --naruto-orange-hover: #E67E00;
+    --scroll-bg: rgba(255, 253, 248, 0.95); /* Light, scroll-like background */
+    --scroll-border: #C8BBAE;
+    --text-primary: #3D352E;
+    --text-secondary: #7A6A5C;
+    --dark-overlay: rgba(10, 25, 41, 0.75);
+    /* Retained error/success colors for messages/dashboards */
+    --success-bg: rgba(212, 237, 218, 0.9);
+    --success-border: #4CAF50;
+    --success-text: #14532d;
+    --error-bg: rgba(248, 215, 218, 0.9);
+    --error-border: #DC3545;
+    --error-text: #721c24;
+}
+
+/* ------------------- GLOBAL & BACKGROUND STYLES (Retained) ------------------- */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
+    background-color: #0a1929;
+    /* NOTE: Ensure you have the /static/images/naruto_bg.png file in your project */
+    background-image: linear-gradient(var(--dark-overlay), var(--dark-overlay)), url('/static/images/naruto_bg.png');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+/* ------------------- LOGIN CONTAINER (Modified from .container) ------------------- */
+.login-container, .dashboard-container {
+    background-color: var(--scroll-bg);
+    padding: 2.5rem 3rem;
+    border: 2px solid var(--scroll-border);
+    border-radius: 8px;
+    /* Retains the unique box-shadow for a layered/aged look */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 0 5px rgba(61, 53, 46, 0.4);
+    width: 100%;
+    max-width: 400px; /* Adjusted width for a typical login form */
+    text-align: center;
+    box-sizing: border-box;
+    backdrop-filter: blur(3px);
+}
+
+/* ------------------- HEADER & TEXT STYLES ------------------- */
+.login-container h2 {
+    font-family: 'Yatra One', cursive; /* Retains custom font aesthetic */
+    font-size: 2.2rem;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem 0;
+    text-shadow: 1px 1px 2px var(--scroll-border);
+}
+
+/* ------------------- INPUT FIELDS (Modified for login structure) ------------------- */
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-bottom: 2px solid var(--scroll-border);
+    border-radius: 4px 4px 0 0;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box; /* Ensures padding doesn't widen the input */
+}
+
+.input-group input:focus {
+    outline: none;
+    background-color: #fff;
+    border-bottom: 2px solid var(--naruto-orange);
+    box-shadow: 0 2px 5px rgba(255, 140, 0, 0.2);
+}
+
+/* ------------------- BUTTON STYLES (Retained unique "press" effect) ------------------- */
+button {
+    width: 100%; /* Make button full width */
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    font-family: inherit;
+    background-color: var(--naruto-orange);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 0px #b36200; /* Unique shadow effect */
+    transition: all 0.1s ease-in-out;
+    margin-top: 1rem;
+}
+
+button:hover {
+    background-color: var(--naruto-orange-hover);
+    transform: translateY(2px);
+    box-shadow: 0 2px 0px #b36200;
+}
+
+button:active {
+    transform: translateY(4px);
+    box-shadow: 0 0px 0px #b36200;
+}
+
+/* ------------------- ERROR MESSAGE (Modified from .result) ------------------- */
+.error-message {
+    margin-bottom: 1.5rem; /* Space above the form */
+    padding: 1rem;
+    border: 2px solid var(--error-border);
+    border-radius: 8px;
+    background-color: var(--error-bg);
+    color: var(--error-text);
+    text-align: center;
+    font-weight: 600;
+}
+
+.success-message {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border: 2px solid var(--success-border);
+    border-radius: 8px;
+    background-color: var(--success-bg);
+    color: var(--success-text);
+    text-align: center;
+    font-weight: 600;
+}
+
+/* ------------------- DASHBOARD STYLES ------------------- */
+.dashboard-container h1 {
+    color: var(--naruto-orange);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-container h2 {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
