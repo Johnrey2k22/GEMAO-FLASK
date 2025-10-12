@@ -1,4 +1,4 @@
-from sample_project import create_app
+from MyFlaskapp import create_app
 
 app = create_app()
 

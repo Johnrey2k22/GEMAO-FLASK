@@ -1,6 +1,6 @@
 from flask import render_template, request, redirect, url_for
 from . import auth_bp
-from sample_project.utils import Alert_Success, Alert_Fail
+from MyFlaskapp.utils import Alert_Success, Alert_Fail
 
 @auth_bp.route('/')
 def index():
