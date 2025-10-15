@@ -1,6 +1,4 @@
-from flask import render_template
-from . import cashier_bp
+from flask import Blueprint
 
-@cashier_bp.route('/cashier_dashboard')
-def cashier_dashboard():
-    return render_template('cashier_dashboard.html')
+# Blueprint for cashier-related views
+cashier_bp = Blueprint('cashier', __name__, template_folder='templates')
