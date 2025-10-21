@@ -6,4 +6,5 @@ def Alert_Success(message):
 
 def Alert_Fail(message):
     """Flashes a danger/error message."""
-    flash(message, 'danger')
+    # use 'fail' here to match the templates' `.alert-fail` CSS/JS
+    flash(message, 'fail')

@@ -1,6 +1,4 @@
-from flask import render_template
-from . import cashier_bp
+# Replaced by `views.py`. Keep this file empty to avoid shadowing the
+# `cashier_bp` Blueprint exported by this package.
 
-@cashier_bp.route('/cashier_dashboard')
-def cashier_dashboard():
-    return render_template('cashier_dashboard.html')
+pass

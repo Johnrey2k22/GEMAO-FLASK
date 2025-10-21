@@ -2,16 +2,46 @@
 <html>
 <head>
     <title>Cashier Dashboard</title>
+    <style>
+        html, body { height:100%; margin:0; font-family: Arial, sans-serif; }
+        body {
+            background: linear-gradient(rgba(255,255,255,0.15), rgba(255,255,255,0.9)), url("{{ url_for('static', filename='naruto_bg.png') }}") no-repeat center top;
+            background-size: cover;
+            color: #222;
+        }
+        .wrap { display:flex; align-items:center; justify-content:center; min-height:80vh; padding: 30px 12px; box-sizing:border-box }
+        .content { background: rgba(255,255,255,0.95); max-width:900px; width:100%; margin: 0 auto; padding:28px; border-radius:10px; box-shadow:0 12px 30px rgba(0,0,0,0.12)}
+        h2{margin-top:0}
+        @media (max-width:720px){ .content{ padding:16px } }
+    </style>
+    <audio id="success-snd" src="{{ url_for('static', filename='success.mp3') }}" preload="auto"></audio>
+    <audio id="fail-snd" src="{{ url_for('static', filename='fail.mp3') }}" preload="auto"></audio>
 </head>
 <body>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <div class="alert alert-{{ category }}">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-    <h2>Welcome, Cashier!</h2>
-    <p>This is the cashier dashboard.</p>
+    <div class="wrap">
+        <div class="content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <h2>Welcome, Cashier!</h2>
+        <p>This is the cashier dashboard.</p>
+        </div>
+    </div>
+
+    <script>
+        // Play success sound if there's a success alert
+        (function(){
+            const success = document.getElementById('success-snd');
+            const fail = document.getElementById('fail-snd');
+            const successAlert = document.querySelector('.alert-success');
+            const failAlert = document.querySelector('.alert-fail');
+            if (successAlert) { success && success.play().catch(()=>{}); }
+            else if (failAlert) { fail && fail.play().catch(()=>{}); }
+        })();
+    </script>
 </body>
 </html>

@@ -1,6 +1,4 @@
-from flask import render_template
-from . import user_bp
+# This module was replaced by `views.py`. Left intentionally empty to avoid
+# name collisions with the `user_bp` Blueprint defined in `__init__.py`.
 
-@user_bp.route('/user_dashboard')
-def user_dashboard():
-    return render_template('user_dashboard.html')
+pass
